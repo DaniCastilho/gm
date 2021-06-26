@@ -1,0 +1,6 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <ng-container *ngFor="let field of dynamicFormFields">
+        <app-dynamic-form-field [field]="field" [form]="dynamicForm"></app-dynamic-form-field>
+    </ng-container>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!dynamicForm.valid">Submit</button>
+</form>

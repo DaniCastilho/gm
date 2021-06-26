@@ -1,0 +1,16 @@
+<ng-container [formGroup]="form">
+
+    <ng-container [ngSwitch]="field.type">
+        <div>
+            <mat-checkbox  *ngSwitchCase="'check'"  [formControlName]="field.field">{{field.label}}</mat-checkbox>
+            <ng-container *ngSwitchCase="'text'" >
+                <input type="hidden" *ngIf="field.hidden === 'true'" [formControlName]="field.field" >
+                
+                <mat-form-field color="accent" *ngIf="field.hidden === 'false'" class="example-full-width" appearance="fill">
+                    <mat-label>{{field.label}}</mat-label>
+                    <input matInput placeholder="{{field.label}}" value="" [formControlName]="field.field" >
+                </mat-form-field>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-container>
